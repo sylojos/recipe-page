@@ -1,3 +1,155 @@
+/*
+ * Font Name: Outfit
+ * Source: https://github.com/Outfitio/Outfit-Fonts
+ * Author: Smartsheet, Inc (andy@smartsheet.com), Rodrigo Fuenzalida (hello@rfuenzalida.com)
+ * Contributors: https://github.com/Outfitio/Outfit-Fonts/graphs/contributors?all=1
+ * License: SIL Open Font License 1.1
+*/
+/*
+ * Font Name: Young Serif
+ * Source: https://github.com/noirblancrouge/YoungSerif
+ * Author: NoirBlancRouge, Bastien Sozeau (contact@noirblancrouge.com)
+ * Contributors: https://github.com/noirblancrouge/YoungSerif/graphs/contributors?all=1
+ * License: SIL Open Font License 1.1
+*/
+
+/* Static font fallback for older browsers */
+@font-face {
+  font-family: "Outfit-static";
+  src: url("../assets/fonts/outfit/static/Outfit-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit-static";
+  src: url("../assets/fonts/outfit/static/Outfit-ExtraBold.ttf")
+    format("truetype");
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit-static";
+  src: url("../assets/fonts/outfit/static/Outfit-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit-static";
+  src: url("../assets/fonts/outfit/static/Outfit-SemiBold.ttf")
+    format("truetype");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit-static";
+  src: url("../assets/fonts/outfit/static/Outfit-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit-static";
+  src: url("../assets/fonts/outfit/static/Outfit-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit-static";
+  src: url("../assets/fonts/outfit/static/Outfit-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit-static";
+  src: url("../assets/fonts/outfit/static/Outfit-ExtraLight.ttf")
+    format("truetype");
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit-static";
+  src: url("../assets/fonts/outfit/static/Outfit-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "YoungSerif-static";
+  src: url("../assets/fonts/young-serif/YoungSerif-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* Variable font for modern browsers */
+@font-face {
+  font-family: "Outfit-variable";
+  src: url("../assets/fonts/outfit/Outfit-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  --c-stone-600: oklch(46.164% 0.01761 70.588);
+  --c-stone-900: oklch(29.995% 0.00469 39.091);
+  --c-brown-800: oklch(46.724% 0.09184 38.302);
+  --c-rose-800: oklch(41.379% 0.12208 354.705);
+
+  --font-static-outfit: "Outfit-static", sans-serif;
+  --font-static-youngserif: "YoungSerif-static", serif;
+  --font-variable-outfit: "Outfit-variable", sans-serif;
+
+  --fs-12: calc(12 / 16 * 1rem);
+  --fs-14: calc(14 / 16 * 1rem);
+  --fs-20: calc(20 / 16 * 1rem);
+  --fs-24: calc(24 / 16 * 1rem);
+
+  --fw-black: 900;
+  --fw-extra-bold: 800;
+  --fw-bold: 700;
+  --fw-semi-bold: 600;
+  --fw-medium: 500;
+  --fw-regular: 400;
+  --fw-light: 300;
+  --fw-extra-light: 200;
+  --fw-thin: 100;
+
+  --c-text-h1: var(--c-stone-900);
+  --c-text-h2-primary: var(--c-brown-800);
+  --c-text-h2-secondary: var(--c-rose-800);
+  --c-text-accent: var(--c-brown-800);
+  --c-text-body: var(--c-stone-600);
+
+  --ff-primary: var(--font-static-youngserif);
+  --ff-secondary: var(--font-static-outfit);
+
+  --fs-body: var(--fs-12);
+  --fs-h1: var(--fs-24);
+  --fs-h2-primary: var(--fs-20);
+  --fs-h2-secondary: var(--fs-14);
+
+  --fw-h1: var(--fw-regular);
+  --fw-h2-primary: var(--fw-regular);
+  --fw-label: var(--fw-bold);
+  --fw-table-header: var(--fw-regular);
+  --fw-table-data: var(--fw-semi-bold);
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    --ff-secondary: var(--font-variable-outfit);
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -10,6 +162,9 @@
 
 body {
   line-height: 1.5;
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-body);
+  color: var(--c-text-body);
 }
 
 img,
@@ -42,4 +197,52 @@ h4,
 h5,
 h6 {
   text-wrap: balance;
+}
+
+.intro__title,
+.section__title {
+  font-family: var(--ff-primary);
+}
+
+.intro__title {
+  color: var(--c-text-h1);
+  font-weight: var(--fw-h1);
+  font-size: var(--fs-h1);
+}
+
+.section__title {
+  color: var(--c-text-h2-primary);
+}
+
+.section__title--font {
+  font-family: var(--ff-secondary);
+}
+
+.section__title--secondary {
+  color: var(--c-text-h2-secondary);
+}
+
+.section__title--sm {
+  font-size: var(--fs-h2-secondary);
+}
+
+.section__title--lg {
+  font-size: var(--fs-h2-primary);
+}
+
+.section__title--fw-regular {
+  font-weight: var(--fw-h2-primary);
+}
+
+.section__label {
+  font-weight: var(--fw-label);
+}
+
+.table__header {
+  font-weight: var(--fw-table-header);
+}
+
+.table__data {
+  color: var(--c-text-accent);
+  font-weight: var(--fw-table-data);
 }
