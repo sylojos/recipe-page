@@ -99,9 +99,12 @@
 }
 
 :root {
+  --c-white: oklch(100% 0.00011 271.152);
+  --c-stone-100: oklch(93.148% 0.02338 69.503);
   --c-stone-600: oklch(46.164% 0.01761 70.588);
   --c-stone-900: oklch(29.995% 0.00469 39.091);
   --c-brown-800: oklch(46.724% 0.09184 38.302);
+  --c-rose-50: oklch(97.931% 0.01254 344.984);
   --c-rose-800: oklch(41.379% 0.12208 354.705);
 
   --font-static-outfit: "Outfit-static", sans-serif;
@@ -128,6 +131,9 @@
   --c-text-h2-secondary: var(--c-rose-800);
   --c-text-accent: var(--c-brown-800);
   --c-text-body: var(--c-stone-600);
+  --c-body-bg: var(--c-stone-100);
+  --c-article-bg: var(--c-white);
+  --c-section-bg-secondary: var(--c-rose-50);
 
   --ff-primary: var(--font-static-youngserif);
   --ff-secondary: var(--font-static-outfit);
@@ -165,6 +171,7 @@ body {
   font-family: var(--ff-secondary);
   font-size: var(--fs-body);
   color: var(--c-text-body);
+  background-color: var(--c-body-bg);
 }
 
 img,
@@ -199,6 +206,10 @@ h6 {
   text-wrap: balance;
 }
 
+.recipe__container {
+  background-color: var(--c-article-bg);
+}
+
 .intro__title,
 .section__title {
   font-family: var(--ff-primary);
@@ -208,6 +219,10 @@ h6 {
   color: var(--c-text-h1);
   font-weight: var(--fw-h1);
   font-size: var(--fs-h1);
+}
+
+.section--secondary {
+  background-color: var(--c-section-bg-secondary);
 }
 
 .section__title {
