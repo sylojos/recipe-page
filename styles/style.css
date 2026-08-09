@@ -127,10 +127,12 @@
   --fw-thin: 100;
 
   --spacing-6: calc(6 / 16 * 1rem);
+  --spacing-8: calc(8 / 16 * 1rem);
   --spacing-10: calc(10 / 16 * 1rem);
   --spacing-12: calc(12 / 16 * 1rem);
   --spacing-16: calc(16 / 16 * 1rem);
   --spacing-18: calc(18 / 16 * 1rem);
+  --spacing-22: calc(22 / 16 * 1rem);
 
   --c-text-h1: var(--c-stone-900);
   --c-text-h2-primary: var(--c-brown-800);
@@ -224,6 +226,16 @@ h6 {
   height: auto;
 }
 
+.recipe__content {
+  padding: var(--spacing-22);
+}
+
+.recipe__content--flex {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-18);
+}
+
 .intro__title,
 .section__title {
   font-family: var(--ff-primary);
@@ -233,6 +245,23 @@ h6 {
   color: var(--c-text-h1);
   font-weight: var(--fw-h1);
   font-size: var(--fs-h1);
+}
+
+.intro__title--mbe-2xs,
+.section__title--mbe-2xs {
+  margin-block-end: var(--spacing-8);
+}
+
+.section--p-sm {
+  padding: var(--spacing-16);
+}
+
+.section__list .section__item:not(:last-child) {
+  margin-block-end: var(--spacing-6);
+}
+
+.section__text {
+  margin-block-end: var(--spacing-8);
 }
 
 .section--secondary {
