@@ -126,6 +126,12 @@
   --fw-extra-light: 200;
   --fw-thin: 100;
 
+  --spacing-6: calc(6 / 16 * 1rem);
+  --spacing-10: calc(10 / 16 * 1rem);
+  --spacing-12: calc(12 / 16 * 1rem);
+  --spacing-16: calc(16 / 16 * 1rem);
+  --spacing-18: calc(18 / 16 * 1rem);
+
   --c-text-h1: var(--c-stone-900);
   --c-text-h2-primary: var(--c-brown-800);
   --c-text-h2-secondary: var(--c-rose-800);
@@ -134,6 +140,8 @@
   --c-body-bg: var(--c-stone-100);
   --c-article-bg: var(--c-white);
   --c-section-bg-secondary: var(--c-rose-50);
+  --c-list-marker-primary: var(--c-brown-800);
+  --c-list-marker-secondary: var(--c-rose-800);
 
   --ff-primary: var(--font-static-youngserif);
   --ff-secondary: var(--font-static-outfit);
@@ -142,12 +150,14 @@
   --fs-h1: var(--fs-24);
   --fs-h2-primary: var(--fs-20);
   --fs-h2-secondary: var(--fs-14);
+  --fs-ol-marker: var(--fs-12);
 
   --fw-h1: var(--fw-regular);
   --fw-h2-primary: var(--fw-regular);
   --fw-label: var(--fw-bold);
   --fw-table-header: var(--fw-regular);
   --fw-table-data: var(--fw-semi-bold);
+  --fw-ol-marker: var(--fw-medium);
 }
 
 @supports (font-variation-settings: normal) {
@@ -252,6 +262,129 @@ h6 {
 .section__title--fw-regular {
   font-weight: var(--fw-h2-primary);
 }
+
+/*
+  Unordered list style
+  Need to include role="list" to the <ul> as the list-style value of none
+  break the accessibility in Safari.
+*/
+.section__item--primary {
+  color: var(--c-list-marker-primary);
+}
+
+.section__item--secondary {
+  color: var(--c-list-marker-secondary);
+}
+
+.section__list--ul-none {
+  list-style: none;
+}
+
+.section__list--pis-md {
+  padding-inline-start: var(--spacing-18);
+}
+
+.section__item--ul-li-relative {
+  position: relative;
+}
+
+.section__item--pis-2xs {
+  padding-inline-start: var(--spacing-10);
+}
+
+/* Marker positioning */
+.section__list .section__item--ul-li-feat::before {
+  content: "•";
+  font-family: var(--ff-secondary);
+  position: absolute;
+  left: calc(var(--spacing-12) * -1);
+  top: 50%;
+  transform: translateY(-50%);
+  /* translate: 0 -50%; */
+}
+
+/* Alternative marker positioning */
+/* .section__list .section__item--ul-li-feat::before {
+  content: "•";
+  font-family: var(--ff-secondary);
+  position: absolute;
+  align-self: center;
+  inset: 0;
+  left: calc(var(--spacing-12) * -1);
+} */
+
+.section__item-content--color-default {
+  color: var(--c-text-body);
+}
+
+/*
+  Alternative unordered list style
+  Need to include role="list" to the <ul> and role="listitem" to the <li>
+  as the flexbox break the accessibility
+*/
+/* .section__list--pis-3xs {
+  padding-inline-start: var(--spacing-6);
+}
+
+.section__item--flex {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-18);
+}
+
+.section__item--flex::before {
+  content: "•";
+} */
+
+/*
+  Ordered list style to solve the issue on font-family not working on
+  the '1' number marker, in this case Outfit font is sans-serif but
+  the '1' number marker is showing serif instead.
+*/
+.section__list--pis-sm {
+  padding-inline-start: var(--spacing-16);
+}
+
+.section__item--pis-xs {
+  padding-inline-start: var(--spacing-12);
+}
+
+/*
+  Modified ordered list marker for older or modern browser.
+  Need to include role="list" to the <ol> as the list-style value of none
+  break the accessibility in Safari.
+*/
+.section__list--list-none {
+  list-style: none;
+  counter-reset: count;
+}
+
+.section__item--relative {
+  counter-increment: count;
+  position: relative;
+}
+
+.section__list .section__item--features::before {
+  content: counter(count) ". ";
+  font-family: var(--ff-secondary);
+  position: absolute;
+  left: calc(var(--spacing-12) * -1);
+  color: var(--c-list-marker-primary);
+  font-weight: var(--fw-ol-marker);
+}
+
+.section__list .section__item--features:first-child::before {
+  left: calc(var(--spacing-10) * -1);
+}
+
+/*
+  Alternative method for modifying ordered list marker for modern browser.
+  No need to include role="list" to the <ol>.
+*/
+/* .section__list .section__item--features::marker {
+  font: var(--fw-ol-marker) var(--fs-ol-marker) var(--ff-secondary);
+  color: var(--c-list-marker-primary);
+} */
 
 .section__label {
   font-weight: var(--fw-label);
