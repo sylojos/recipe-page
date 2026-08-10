@@ -127,6 +127,7 @@
   --fw-extra-light: 200;
   --fw-thin: 100;
 
+  --spacing-1: calc(1 / 16 * 1rem);
   --spacing-6: calc(6 / 16 * 1rem);
   --spacing-8: calc(8 / 16 * 1rem);
   --spacing-10: calc(10 / 16 * 1rem);
@@ -147,6 +148,7 @@
   --c-list-marker-primary: var(--c-brown-800);
   --c-list-marker-secondary: var(--c-rose-800);
   --c-table-border: var(--c-stone-150);
+  --c-hr: var(--c-stone-150);
 
   --ff-primary: var(--font-static-youngserif);
   --ff-secondary: var(--font-static-outfit);
@@ -420,6 +422,13 @@ h6 {
 
 .section__label {
   font-weight: var(--fw-label);
+}
+
+hr {
+  border-block-start: var(--spacing-1) solid var(--c-hr);
+  border-block-end: 0 solid var(--c-hr);
+  border-inline-start: var(--spacing-1) solid var(--c-hr);
+  border-inline-end: var(--spacing-1) solid var(--c-hr);
 }
 
 .table {
