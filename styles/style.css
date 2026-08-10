@@ -114,8 +114,14 @@
 
   --fs-12: calc(12 / 16 * 1rem);
   --fs-14: calc(14 / 16 * 1rem);
+  --fs-16: calc(16 / 16 * 1rem);
+  --fs-18: calc(18 / 16 * 1rem);
   --fs-20: calc(20 / 16 * 1rem);
   --fs-24: calc(24 / 16 * 1rem);
+  --fs-26: calc(26 / 16 * 1rem);
+  --fs-28: calc(28 / 16 * 1rem);
+  --fs-30: calc(30 / 16 * 1rem);
+  --fs-32: calc(32 / 16 * 1rem);
 
   --fw-black: 900;
   --fw-extra-bold: 800;
@@ -134,8 +140,11 @@
   --spacing-12: calc(12 / 16 * 1rem);
   --spacing-16: calc(16 / 16 * 1rem);
   --spacing-18: calc(18 / 16 * 1rem);
+  --spacing-20: calc(20 / 16 * 1rem);
   --spacing-22: calc(22 / 16 * 1rem);
   --spacing-24: calc(24 / 16 * 1rem);
+  --spacing-28: calc(28 / 16 * 1rem);
+  --spacing-30: calc(30 / 16 * 1rem);
 
   --radius-14: calc(14 / 16 * 1rem);
 
@@ -160,6 +169,7 @@
   --fs-h2-primary: var(--fs-20);
   --fs-h2-secondary: var(--fs-14);
   --fs-ol-marker: var(--fs-12);
+  --fs-ul-marker: var(--fs-12);
 
   --fw-h1: var(--fw-regular);
   --fw-h2-primary: var(--fw-regular);
@@ -460,4 +470,66 @@ hr {
   font-weight: var(--fw-table-data);
   padding-block-start: var(--spacing-8);
   padding-block-end: var(--spacing-8);
+}
+
+@media (374px < width < 737px) {
+  :root {
+    --fs-body: var(--fs-16);
+    --fs-h1: var(--fs-32);
+    --fs-h2-primary: var(--fs-26);
+    --fs-h2-secondary: var(--fs-18);
+    --fs-ol-marker: var(--fs-16);
+    --fs-ul-marker: var(--fs-20);
+
+    --fw-ol-marker: var(--fw-bold);
+  }
+
+  .recipe__content {
+    padding: var(--spacing-30);
+  }
+
+  .recipe__content--flex {
+    gap: var(--spacing-28);
+  }
+
+  .intro__title--mbe-2xs,
+  .section__title--mbe-2xs {
+    margin-block-end: var(--spacing-16);
+  }
+
+  .section--p-sm {
+    padding: var(--spacing-22);
+  }
+
+  .section__item--pis-2xs {
+    padding-inline-start: var(--spacing-18);
+  }
+
+  .section__list .section__item--ul-li-feat::before {
+    font-size: var(--fs-ul-marker);
+  }
+
+  .section__item--pis-xs {
+    padding-inline-start: var(--spacing-20);
+  }
+
+  .section__list .section__item:not(:last-child) {
+    margin-block-end: var(--spacing-10);
+  }
+
+  .section__text {
+    margin-block-end: var(--spacing-12);
+  }
+
+  .table__header {
+    padding-inline-start: var(--spacing-30);
+    padding-block-start: var(--spacing-12);
+    padding-block-end: var(--spacing-12);
+  }
+
+  .table__data {
+    padding-inline-start: var(--spacing-6);
+    padding-block-start: var(--spacing-12);
+    padding-block-end: var(--spacing-12);
+  }
 }
