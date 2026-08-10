@@ -101,6 +101,7 @@
 :root {
   --c-white: oklch(100% 0.00011 271.152);
   --c-stone-100: oklch(93.148% 0.02338 69.503);
+  --c-stone-150: oklch(90.365% 0.01036 67.474);
   --c-stone-600: oklch(46.164% 0.01761 70.588);
   --c-stone-900: oklch(29.995% 0.00469 39.091);
   --c-brown-800: oklch(46.724% 0.09184 38.302);
@@ -133,6 +134,7 @@
   --spacing-16: calc(16 / 16 * 1rem);
   --spacing-18: calc(18 / 16 * 1rem);
   --spacing-22: calc(22 / 16 * 1rem);
+  --spacing-24: calc(24 / 16 * 1rem);
 
   --c-text-h1: var(--c-stone-900);
   --c-text-h2-primary: var(--c-brown-800);
@@ -144,6 +146,7 @@
   --c-section-bg-secondary: var(--c-rose-50);
   --c-list-marker-primary: var(--c-brown-800);
   --c-list-marker-secondary: var(--c-rose-800);
+  --c-table-border: var(--c-stone-150);
 
   --ff-primary: var(--font-static-youngserif);
   --ff-secondary: var(--font-static-outfit);
@@ -419,11 +422,27 @@ h6 {
   font-weight: var(--fw-label);
 }
 
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.table__row:not(:last-child) {
+  border-bottom: 1px solid var(--c-table-border);
+}
+
 .table__header {
   font-weight: var(--fw-table-header);
+  text-align: left;
+  padding-inline-start: var(--spacing-24);
+  padding-block-start: var(--spacing-8);
+  padding-block-end: var(--spacing-8);
 }
 
 .table__data {
   color: var(--c-text-accent);
   font-weight: var(--fw-table-data);
+  padding-block-start: var(--spacing-8);
+  padding-block-end: var(--spacing-8);
 }
